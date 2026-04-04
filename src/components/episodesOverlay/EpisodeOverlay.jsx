@@ -1,11 +1,11 @@
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { PlayCircle, CheckCircle, Eye, X } from "lucide-react";
+import { PlayCircle, CheckCircle, Eye, X, Loader } from "lucide-react";
 import "./EpisodeOverlay.css";
 import PropTypes from "prop-types";
 import useFetchEpisodes from "../../hooks/useFetchEpisodes"; // <-- adjust path
 
-const LOCAL_STORAGE_KEY = "cinepro_playback_progress";
+const LOCAL_STORAGE_KEY = "vplayer_playback_progress";
 
 export default function EpisodeOverlay({ contentId, currentSeason, currentEpisode ,onClose }) {
   const [selectedSeason, setSelectedSeason] = useState(currentSeason || 1);
@@ -24,8 +24,14 @@ export default function EpisodeOverlay({ contentId, currentSeason, currentEpisod
     }
   }, [contentId]);
 
-  if (loading) return <div className="eo-loading">Loading episodes...</div>;
-  if (error) return <div className="eo-error">{error}</div>;
+//   if (loading) return
+//   <div className="eo-loading">
+//           <div className="loading-spinner">
+//             <Loader className="spinner" stroke="white" size={30} />
+//      </div>
+          
+//  </div>;
+//   if (error) return <div className="eo-error">{error}</div>;
 
   return (
     <>

@@ -6,8 +6,9 @@
 
 body {
   font-family: "Arial", sans-serif;
-  background: #f5f7fa;
-  color: #333;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {

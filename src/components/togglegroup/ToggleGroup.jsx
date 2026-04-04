@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const ToggleGroup = ({ type, children, value, onValueChange }) => {
   return (
-    <div className="toggle-group" data-type={type}>
+    <div className="toggle-group " data-type={type}>
       {React.Children.map(children, child =>
         React.cloneElement(child, {
           isActive: child.props.value === value,

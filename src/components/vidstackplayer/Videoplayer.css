@@ -306,3 +306,20 @@ custom-vds-button p{
     margin-bottom: .8rem !important;
 }
 }
+
+.vds-next-ep-button{
+    position: absolute;
+    bottom: 100px;
+    right: 10px;
+    z-index: 200;
+    padding: 10px;
+    display: flex;
+    max-width: 150px;
+    width: 100px;
+    justify-content: flex-end;
+    align-items: center;
+    background: #ffffff;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px
+}

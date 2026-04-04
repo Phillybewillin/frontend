@@ -1,29 +1,23 @@
 .episode-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
-    z-index: 10;
+    z-index: 9999;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   background: #2121218f;
-  /* background: linear-gradient(300deg,var(--theme-color) 0% , #0a0a0a68 40% , #000000 100% ); */
   backdrop-filter: blur(5px);
-  
   padding: 2rem 1rem;
-  /* opacity: .8; */
   overflow-x: hidden;
+  overflow-y: auto;
   width: 37vw;
   height: 100vh;
- margin-left: .5rem;
+  margin-left: .5rem;
   color: white;
   scrollbar-width: thin;
   scrollbar-color: #212121 #000000;
-  transition: z-index 0.1s ease-in-out;
-  animation: slideIn 0.2s ease-in-out;
-}
-.episode-overlay:hover{
-    z-index: 100;
+  animation: slideIn 0.2s ease-out;
 }
 
 @keyframes slideIn {
@@ -183,9 +177,10 @@
 
 .closebutton{
     position: fixed;
-    top:50%;
-    /* transform: translateY(-50%);  */
-    left: 58vw;
+    top: 50%;
+    right: calc(37vw + 12px);
+    transform: translateY(-50%);
+    z-index: 10000;
     background-color: #ffffff13;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -207,5 +202,13 @@
 }
 .eo-loading,
 .eo-error {
-  padding: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 37vw;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 1rem;
 }

@@ -1,35 +1,86 @@
-.artplayercontainer{
+/* ── Container ─────────────────────────────────────────── */
+.artplayercontainer {
     height: 100vh;
-    max-width: 100vw;
-    min-width: 100vw;
-    background: var(--background-main);
-    
+    width: 100vw;
+    background: var(--background-main, #0a0a0a);
+    position: relative;
+    overflow: hidden;
 }
-.art-settings{
-    height: max-content !important;
-    border-radius: 20px !important;
+
+/* ── Kill web-fullscreen button entirely ── */
+.art-control-fullscreenWeb {
+    display: none !important;
+}
+
+/* ── Match fullscreen icon size to other controls (gear etc.) ── */
+.art-control-fullscreen svg {
+    width: 22px !important;
+    height: 22px !important;
+}
+
+/* ── Settings panel ──────────────────────────────────────── */
+.art-settings {
     width: 240px !important;
-    
+    height: max-content !important;
+    border-radius: 16px !important;
     bottom: 70px !important;
-    background-color: transparent !important;
+    overflow: hidden !important;
+    background: rgba(15, 15, 15, 0.82) !important;
+    backdrop-filter: blur(20px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45) !important;
 }
 
-.art-setting-item{
-    height: 60px !important;
-    line-height: 50px;
-    font-size: 12px;
-    padding: 10px 5px !important;
-    padding-left: 15px !important;
+/* ── The inner panel that slides ─────────── */
+.art-settings-body {
+    width: 240px !important;
+    overflow: hidden !important;
+}
+
+.art-settings-body .art-setting-panel {
+    width: 240px !important;
+    max-height: calc(100vh - 120px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+.art-settings-body .art-setting-panel::-webkit-scrollbar {
+    display: none;
+}
+
+/* ── Setting items ───────────────────────────────────────── */
+.art-setting-item {
+    height: 52px !important;
+    line-height: 1 !important;
+    font-size: 12.5px;
+    padding: 0 16px !important;
+    display: flex !important;
+    align-items: center !important;
     cursor: pointer;
+    border-radius: 8px;
+    margin: 2px 6px;
+    transition: background 0.15s ease;
 }
 
-.art-setting-item-left{
+.art-setting-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.art-setting-item-left {
+    display: flex !important;
+    align-items: center !important;
     gap: 10px !important;
-    cursor: pointer;
 }
-.art-icon{
-    background: rgba(255, 255, 255, 0.082);
-    border-radius: 50%;
-   
-   
+
+/* ── Adaptive accent ─────────────────────────────────────── */
+.art-progress-hover,
+.art-played {
+    background: var(--art-theme) !important;
+}
+
+.art-volume-current {
+    background: var(--art-theme) !important;
 }

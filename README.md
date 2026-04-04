@@ -1,11 +1,11 @@
 > [!important]
 > This frontend does not really work. it has only been made for testing purposes (i mean it works i think but it is not usable on a large scale.)
 
-# CinePro Frontend
+# VPlayer Frontend
 
 ## Description
 
-This repository contains the frontend for CinePro, an open-source movie and TV show streaming platform. The frontend is built using React and provides a user-friendly interface to browse and watch movies and TV shows. It integrates with the CinePro backend to fetch movie and TV show data and streams videos using HLS.js.
+This repository contains the frontend for VPlayer, an open-source movie and TV show streaming platform. The frontend is built using React and provides a user-friendly interface to browse and watch movies and TV shows. It integrates with the VPlayer backend to fetch movie and TV show data and streams videos using HLS.js.
 
 ## Features
 

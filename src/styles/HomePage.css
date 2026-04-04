@@ -160,7 +160,7 @@
 .cta-button {
   background-color: #ff4d6d;
   color: white;
-  padding: 0.8rem 2rem;
+  padding: 0.9rem 2rem;
   border: none;
   border-radius: 1rem;
   font-size: 1rem;
@@ -216,25 +216,26 @@
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 2rem;
-  background-color: #fffbfb0e;
+  /* background-color: #fffbfb0e; */
   border-radius: 2rem;
   
-  padding: 0.3rem;
+  padding: 0.3rem 1rem;
 }
 
 .toggle-group-item {
   background-color: transparent;
   color: #e0e0e0;
-  padding: 0.7rem 1rem;
+  padding: 2rem 1.4rem;
+  width: 100%;
   border: none;
-  border-radius: 2rem;
+  border-radius: 1rem;
   cursor: pointer;
   font-size: 0.9rem;
   font-weight: 300;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .toggle-group-item.active {
@@ -254,15 +255,35 @@
 
 .input-row {
   display: flex;
-  gap: 1rem;
-  
+  gap: 1.5rem;
+  width: 100%;
   margin-bottom: 1.5rem;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end; /* Align inputs themselves by putting labels above */
+  flex-wrap: wrap; /* Support wrapping on small screens */
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.id-group {
+  flex-grow: 1; /* Take up remaining width */
+  min-width: 250px;
+}
+
+.input-title {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  font-weight: 400;
+  margin-left: 0.5rem;
 }
 
 .id-input {
-  flex-grow: 1;
+  width: 100%;
   padding: 1rem 1rem !important;
   border-radius: 2rem !important;
   border: none !important;
@@ -271,7 +292,7 @@
   margin-bottom: 0 !important;
   font-size: 1rem;
   outline: none;
-  max-width: 300px; /* Limit width */
+  max-width: none; /* Removed so it spans full width */
   transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -283,7 +304,8 @@
 
 
 .se-input {
-  width: 120px; /* Fixed width for S and E inputs */
+  width: 100%; /* Takes full width of its `.input-group` container */
+  min-width: 90px;
   padding: 1rem 1rem !important;
   border-radius: 2rem !important;
   border: none !important;
@@ -296,7 +318,16 @@
 
 .season-episode-group {
   display: flex;
-  gap: 0.5rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.anime-dub-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.3rem; /* Align switch with input boxes visually */
 }
 
 .generated-link-bar {
