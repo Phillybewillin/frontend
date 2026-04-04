@@ -4,6 +4,7 @@ import "../styles/HomePage.css";
 import { Tv, ChevronDown, PaintRoller, TvIcon, Play, ALargeSmall, Image, Monitor, Palette, Clapperboard } from "lucide-react"; // Import Lucide icons
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuRadioGroup, DropdownMenuRadioItem } from "../components/DropdownComponents/DropdownMenu";
 import { ToggleGroup, ToggleGroupItem } from "../components/togglegroup/ToggleGroup";
+import TrendingCarousel from "../components/TrendingCarousel/TrendingCarousel";
 
 // Constants for default content
 const DEFAULT_MOVIE_ID = "299534";
@@ -182,16 +183,21 @@ function HomePage() {
       <main className="main-content">
         <section className="presentation-section">
           <div className="presentation-gradient"></div>
-          <div className="presentation-text">
-            <section className="hero-section">
-              <div className="hero-content">
-                <h1>Next Generation Media Experience</h1>
-                <p>Stable, fast, and beautiful media playback for everyone.</p>
-              </div>
-            </section>
+          <div className="presentation-container">
+            <div className="presentation-text">
+              <section className="hero-section">
+                <div className="hero-content">
+                  <h1>Next Generation Media Experience</h1>
+                  <p>Stable, fast, and beautiful media playback for everyone.</p>
+                </div>
+              </section>
 
-            <div className="buttonholder">
-              <button className="cta-button" onClick={() => document.getElementById('player-demo-section').scrollIntoView({ behavior: 'smooth' })}>Try the Player</button>
+              <div className="buttonholder">
+                <button className="cta-button" onClick={() => document.getElementById('player-demo-section').scrollIntoView({ behavior: 'smooth' })}>Try the Player</button>
+              </div>
+            </div>
+            <div className="presentation-carousel">
+               <TrendingCarousel />
             </div>
           </div>
         </section>

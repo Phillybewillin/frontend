@@ -41,4 +41,9 @@ export const fetchTmdbDetails = async (movieId, SN , EP) => {
   return data;
 };
 
+export const fetchTrendingContent = async () => {
+    const url = `https://api.themoviedb.org/3/trending/all/day?api_key=${TMDB_API_KEY}`;
+    return fetchData(url);
+};
+
 export { fetchMovie, fetchSeries };
