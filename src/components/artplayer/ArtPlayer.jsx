@@ -173,16 +173,16 @@ export default function ArtPlayer({ files, subtitles, ...playerSettingsProps }) 
             playerInstanceRef.current = null;
         }
 
-        const currentFiles = filesRef.current;
-        const currentSubtitles = sortedSubtitlesRef.current;
+        const currentFiles = (filesRef.current || []).filter(f => f.file && typeof f.file === 'string');
+        const currentSubtitles = (sortedSubtitlesRef.current || []).filter(s => s.url && typeof s.url === 'string');
 
-        if (!currentFiles || currentFiles.length === 0 || !currentContentId) {
+        if (currentFiles.length === 0 || !currentContentId) {
             artRef.current.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100%;color:white;">No media files available.</div>';
             return;
         }
 
         const defaultFile = currentFiles[currentFileIndex] || currentFiles[0];
-        if (!defaultFile) {
+        if (!defaultFile || !defaultFile.file) {
             artRef.current.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100%;color:white;">No playable source found.</div>';
             return;
         }

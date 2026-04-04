@@ -7,7 +7,7 @@ import { ToggleGroup, ToggleGroupItem } from "../components/togglegroup/ToggleGr
 import TrendingCarousel from "../components/TrendingCarousel/TrendingCarousel";
 
 // Constants for default content
-const DEFAULT_MOVIE_ID = "299534";
+const DEFAULT_MOVIE_ID = "1368166";
 const DEFAULT_SHOW_ID = "201834";
 const DEFAULT_ANIME_ID = "12234";
 const DEFAULT_SHOW_SEASON = 1; // S1

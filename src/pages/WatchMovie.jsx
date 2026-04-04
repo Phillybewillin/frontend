@@ -118,10 +118,13 @@ function WatchMovie() {
   const currentEpisode = episodes[episode - 1];
   const activeEpisodeTitle = currentEpisode ? currentEpisode.name : null;
 
-  // If MediaWeb is selected, skip stream fetching entirely
+  // If MediaWeb is selected, skip stream fetching entirely — pass nulls so the hook bails early
   const isMediaWeb = playerType === "mediaweb";
   const { sources, subtitles, loading: loadingStreams, error: streamError } = useFetchStreams(
-    episode
+    isMediaWeb ? null : id,
+    isMediaWeb ? null : type,
+    isMediaWeb ? null : season,
+    isMediaWeb ? null : episode
   );
 
   const [isCheckingSources, setIsCheckingSources] = useState(false);
@@ -158,6 +161,7 @@ function WatchMovie() {
 
     checkSources();
   }, [sources, loadingStreams, isMediaWeb]);
+
   useEffect(() => {
     const newParams = {
       player: playerType,
@@ -224,6 +228,7 @@ function WatchMovie() {
     onFallback: () => setUseIframeFallback(true),
   };
 
+  // Render MediaWeb directly if explicitly selected
   if (isMediaWeb) {
     return (
       <div className="watch-movie-container watch-movie-container-notLoading">
@@ -233,7 +238,8 @@ function WatchMovie() {
   }
 
   const isLoading = loadingStreams || loadingTmdb || isCheckingSources;
-  const hasErrors = (sources.length === 0 && !loadingStreams && !isCheckingSources) || streamError || useIframeFallback;
+  // Only trigger fallback once loading is fully done and sources genuinely failed
+  const hasErrors = !isLoading && (sources.length === 0 || streamError || useIframeFallback);
 
   return (
     <div className={`watch-movie-container ${!isLoading && sources.length > 0 ? "watch-movie-container-notLoading" : ""}`}>

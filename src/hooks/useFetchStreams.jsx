@@ -130,6 +130,7 @@ async function fetchSubtitles(wyzieId, type, season, episode) {
     const unique = [];
 
     for (const sub of compatible) {
+      if (!sub.url || typeof sub.url !== 'string') continue;
       const lang = (sub.language || sub.lang || '').toLowerCase();
       if (!lang || seen.has(lang)) continue;
       seen.add(lang);
@@ -218,7 +219,7 @@ const useFetchStreams = (tmdbId, type, season, episode) => {
           ...streams(nuvioR),
           ...streams(webstreamrR),
           ...streams(streamvixR),
-        ]);
+        ]).filter(s => s.url && typeof s.url === 'string');
 
         const fetchedSubs = subtitlesR.status === 'fulfilled' ? subtitlesR.value : [];
 
